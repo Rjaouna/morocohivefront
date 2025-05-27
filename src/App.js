@@ -2,21 +2,20 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import CircuitsList from "./components/CircuitsList";
 import Circuit from "./components/Circuit";
-import Navbar from "./components/Navbar";
-import Slide from "./components/Slide";
+import Footer from "./components/Footer";
+import Nav from "./components/Nav";
 
-import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 function App() {
   return (
     <Router>
-      <Navbar />
-      <Slide />
+      <Nav />
       <Routes>
         <Route path='/' element={<CircuitsList />} />
         <Route path='/circuit/:id' element={<Circuit />} />
       </Routes>
+      <Footer />
     </Router>
   );
 }

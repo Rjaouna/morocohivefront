@@ -1,3 +1,21 @@
+/* src/index.css  */
+
+/* 1) Nouveau thème de couleur ------------------------------------------- */
+:root {
+  /* Couleur primaire de ton identité visuelle */
+  --bs-primary: #b34800;          /* orange vif */
+  --bs-primary-rgb: 255, 107, 0;  /* valeurs R,G,B */
+
+  /* (facultatif) nuances utilisées par .bg-primary-subtle, .text-primary-emphasis, etc.*/
+  --bs-primary-text-emphasis: #b34700;
+  --bs-primary-bg-subtle: #ffe9d6;
+  --bs-primary-border-subtle: #ffc79f;
+}
+
+/* 2) Ton style perso habituel ------------------------------------------- */
+/* … reste de tes règles … */
+
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

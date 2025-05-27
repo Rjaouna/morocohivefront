@@ -1,0 +1,9 @@
+/* 1) surcharge AVANT l’import de Bootstrap */
+$primary: #ff6b00;
+$primary-rgb: 255, 107, 0;
+
+/* + d’autres variables si besoin, ex. : */
+// $font-family-sans-serif: 'Inter', sans-serif;
+
+/* 2) puis on importe tout le framework */
+@import "~bootstrap/scss/bootstrap";
