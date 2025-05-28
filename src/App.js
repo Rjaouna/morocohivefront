@@ -11,6 +11,7 @@ function App() {
   return (
     <Router>
       <Nav />
+
       <Routes>
         <Route path='/' element={<CircuitsList />} />
         <Route path='/circuit/:id' element={<Circuit />} />

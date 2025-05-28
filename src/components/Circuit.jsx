@@ -157,7 +157,7 @@ const Circuit = () => {
                   <ul className="mt-2">
                     {day.details.map((detail, j) => (
                       <li key={j}>
-                        {detail.timeSlot} {detail.description}
+                        {detail.timeSlot} : {detail.description}
                       </li>
                     ))}
                   </ul>

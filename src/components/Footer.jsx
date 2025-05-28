@@ -11,9 +11,9 @@ function Footer() {
         <Row className="gy-4">
           {/* Brand & tagline */}
           <Col md={4}>
-            <h5 className="text-primary fw-bold">MoroccoHave</h5>
+            <h5 className="text-primary fw-bold">Morocco Hive —</h5>
             <p className="text-muted">
-              Explore Morocco with curated circuits and unique experiences.
+            Morocco Hive — Your gateway to Morocco’s wonders. We craft custom journeys, genuine local experiences, and seamless guidance from sun-kissed Sahara dunes to the pulse of vibrant medinas.
             </p>
           </Col>
 
