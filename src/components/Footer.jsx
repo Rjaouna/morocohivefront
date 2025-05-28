@@ -1,9 +1,21 @@
-import React from "react";
-import { Container, Row, Col, Nav } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from 'react'
+import { Container, Row, Col, Nav, Text } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 function Footer() {
-  const year = new Date().getFullYear();
+  const year = new Date().getFullYear()
+  const [isAuthenticated, setIsAuthenticated] = useState(
+    !!localStorage.getItem('token'),
+  )
+
+  // Refresh auth state when token changes
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsAuthenticated(!!localStorage.getItem('token'))
+    }, 1000)
+
+    return () => clearInterval(interval)
+  }, [])
 
   return (
     <footer className="bg-light border-top pt-5 pb-4 mt-auto small">
@@ -13,7 +25,9 @@ function Footer() {
           <Col md={4}>
             <h5 className="text-primary fw-bold">Morocco Hive —</h5>
             <p className="text-muted">
-            Morocco Hive — Your gateway to Morocco’s wonders. We craft custom journeys, genuine local experiences, and seamless guidance from sun-kissed Sahara dunes to the pulse of vibrant medinas.
+              Morocco Hive — Your gateway to Morocco’s wonders. We craft custom
+              journeys, genuine local experiences, and seamless guidance from
+              sun-kissed Sahara dunes to the pulse of vibrant medinas.
             </p>
           </Col>
 
@@ -21,10 +35,23 @@ function Footer() {
           <Col md={4}>
             <h6 className="fw-bold mb-3">Quick links</h6>
             <Nav className="flex-column gap-1">
-              <Nav.Link as={Link} to="/">Home</Nav.Link>
-              <Nav.Link as={Link} to="/about">About us</Nav.Link>
-              <Nav.Link as={Link} to="/contact">Contact</Nav.Link>
-              <Nav.Link as={Link} to="/privacy">Privacy policy</Nav.Link>
+              <Nav.Link as={Link} to="/">
+                Home
+              </Nav.Link>
+              <Nav.Link as={Link} to="/about">
+                About us
+              </Nav.Link>
+              <Nav.Link as={Link} to="/contact">
+                Contact
+              </Nav.Link>
+              <Nav.Link as={Link} to="/privacy">
+                Privacy policy
+              </Nav.Link>
+              {isAuthenticated && (
+                <Nav.Link as={Link} to="/privacy">
+                 My account
+                </Nav.Link>
+              )}
             </Nav>
           </Col>
 
@@ -32,8 +59,12 @@ function Footer() {
           <Col md={4}>
             <h6 className="fw-bold mb-3">Contact</h6>
             <address className="mb-2">
-              Casablanca, Morocco<br />
-              <a href="mailto:info@moroccohave.com" className="text-decoration-none">
+              Casablanca, Morocco
+              <br />
+              <a
+                href="mailto:info@moroccohave.com"
+                className="text-decoration-none"
+              >
                 info@moroccohave.com
               </a>
               <br />
@@ -61,7 +92,7 @@ function Footer() {
         </p>
       </Container>
     </footer>
-  );
+  )
 }
 
-export default Footer;
+export default Footer

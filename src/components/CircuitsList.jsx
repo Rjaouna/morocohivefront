@@ -18,8 +18,18 @@ const truncate = (text, max = 100) =>
 
 const CircuitsList = () => {
   const [circuits, setCircuits] = useState([]);
-  const [loading,  setLoading]  = useState(true);
-  const [error,    setError]    = useState("");
+  const [loading, setLoading]  = useState(true);
+  const [error, setError] = useState("");
+  const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem("token"));
+
+  // Refresh auth state when token changes
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsAuthenticated(!!localStorage.getItem("token"));
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     fetch(API_URL)
@@ -74,12 +84,22 @@ const CircuitsList = () => {
               <div className="card-body d-flex flex-column">
                 <h5 className="card-title">{circuit.name}</h5>
                 <p className="card-text flex-grow-1">{truncate(circuit.description, 100)}</p>
-                <Link
-                  to={`/circuit/${circuit.id}`}
-                  className="btn btn-outline-primary btn-sm align-self-start mt-auto"
-                >
-                  View details
-                </Link>
+                <div className="d-flex justify-content-between align-items-center mt-auto">
+                  <Link
+                    to={`/circuit/${circuit.id}`}
+                    className="btn btn-outline-primary btn-sm"
+                  >
+                    View details
+                  </Link>
+                  {isAuthenticated && (
+                    <Link
+                      to={`/circuit/${circuit.id}/reservation`}
+                      className="btn btn-success btn-sm"
+                    >
+                      Reservation
+                    </Link>
+                  )}
+                </div>
               </div>
             </div>
           </div>
