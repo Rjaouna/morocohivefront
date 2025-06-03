@@ -5,6 +5,8 @@ import Circuit from "./components/Circuit";
 import Footer from "./components/Footer";
 import Nav from "./components/Nav";
 import ClientReviews from "./components/ClientReviews";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
+
 
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import LoginForm from "./components/LoginForm";
